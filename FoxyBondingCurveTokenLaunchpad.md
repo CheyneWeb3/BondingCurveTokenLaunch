@@ -2,11 +2,11 @@
 
 ## 1. Overview
 
-The `BondingLaunchFactory` is a smart contract system that enables **permissionless token launches** with a built-in **bonding curve** and **final Uniswap V2 listing**.
+The `BondingLaunchFactory` is a smart contract system that enables **permissionless token launches** with a built-in **bonding curve** and **final FoxySwap V2 listing**.
 It consists of:
 
 * **LaunchToken** — ERC-20 token deployed for each project.
-* **LaunchPool** — bonding curve pool that manages buys, sells, and final migration to Uniswap LP.
+* **LaunchPool** — bonding curve pool that manages buys, sells, and final migration to FoxySwap LP.
 * **BondingLaunchFactory** — factory contract that deploys tokens and pools, collects fees, and tracks launches.
 
 This system removes the need for manual liquidity setup and guarantees a fair, curve-driven initial distribution.
@@ -26,13 +26,13 @@ This system removes the need for manual liquidity setup and guarantees a fair, c
 
 * Each launch sets a **target market cap (in reserve token terms)**.
 * While the pool is below this cap, trades occur on the bonding curve.
-* Once the cap is reached, the pool is **finalized** → all liquidity is added to Uniswap V2.
+* Once the cap is reached, the pool is **finalized** → all liquidity is added to FoxySwap V2.
 
-### 🪙 Listing on Uniswap
+### 🪙 Listing on FoxySwap
 
-* When finalized, **all reserves and tokens in the pool** are sent to the Uniswap V2 router.
+* When finalized, **all reserves and tokens in the pool** are sent to the FoxySwap V2 router.
 * LP tokens are minted to the specified **LP recipient** (for your frontend, this defaults to a **dead wallet** for renounced LP).
-* After this, trading happens on Uniswap, not the bonding curve.
+* After this, trading happens on FoxySwap, not the bonding curve.
 
 ---
 
@@ -66,7 +66,7 @@ This system removes the need for manual liquidity setup and guarantees a fair, c
    * Symbol: e.g., "EXM"
    * Initial Supply: amount to mint to pool
    * Initial Reserve: amount of reserve token (WETH/RBAT) to back pool
-   * Target Market Cap: threshold at which Uniswap LP is created
+   * Target Market Cap: threshold at which FoxySwap LP is created
    * LP Recipient: auto-set to **dead wallet** (for renounced LP ownership)
 
 3. **Pay Deployment Fee**
@@ -98,9 +98,9 @@ This system removes the need for manual liquidity setup and guarantees a fair, c
 * If target market cap is reached:
 
   * Pool pauses.
-  * All reserves and tokens migrate to Uniswap.
+  * All reserves and tokens migrate to FoxySwap.
   * LP tokens minted to **dead wallet** (ensuring no rugpull).
-  * Trading continues on Uniswap.
+  * Trading continues on FoxySwap.
 
 ---
 
@@ -120,7 +120,7 @@ This system removes the need for manual liquidity setup and guarantees a fair, c
 2. **Chart** — bonding curve price & reserves (live with Multicall3).
 3. **Buy** — bonding buy widget.
 4. **Transactions** — pool activity.
-5. **If Listed** — LP stats from Uniswap (future API).
+5. **If Listed** — LP stats from FoxySwap (future API).
 
 ---
 
@@ -142,7 +142,7 @@ This algorithm ensures **fair entry**, **transparent bonding**, and **trustless 
 
 * **Reserve Token**: `0x0C6eF4f55f315C524C590572625d733491DC0921`
 * **Treasury**: `0xedeb5bf895eb0315cc65cb31a84ffd92dc06e854`
-* **Uniswap Router**: `0x83641dBab18AF4cd14ac23F6257f3269a5693204`
+* **FoxySwap Router**: `0x83641dBab18AF4cd14ac23F6257f3269a5693204`
 * **Deploy Fee**: `1e18 wei` (approx ETH of  ≈ 20 USD )
 
 ### Frontend Integration
@@ -159,6 +159,6 @@ This algorithm ensures **fair entry**, **transparent bonding**, and **trustless 
 ---
 
 ✅ **Summary**:
-The Bonding Launch Factory creates a **trustless, fair-launch environment** where tokens are sold on a bonding curve until a target market cap is reached. At that point, liquidity is migrated to Uniswap and LP is permanently locked in a dead wallet. Costs are minimal (≈ \$20 deploy fee + gas + 1% trading fee), and the frontend provides a professional DEX-like token details page with metadata, charts, and buy/sell functionality.
+The Bonding Launch Factory creates a **trustless, fair-launch environment** where tokens are sold on a bonding curve until a target market cap is reached. At that point, liquidity is migrated to FoxySwap and LP is permanently locked in a dead wallet. Costs are minimal (≈ \$20 deploy fee + gas + 1% trading fee), and the frontend provides a professional DEX-like token details page with metadata, charts, and buy/sell functionality.
 
 ---

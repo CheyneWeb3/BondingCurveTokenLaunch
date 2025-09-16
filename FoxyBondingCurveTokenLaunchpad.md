@@ -40,7 +40,7 @@ This system removes the need for manual liquidity setup and guarantees a fair, c
 
 | Fee Type        | Amount                          | Destination | Purpose                         |
 | --------------- | ------------------------------- | ----------- | ------------------------------- |
-| **Deploy Fee**  | `1 ETH` (\~\$20 on your config) | Treasury    | Required to create a token/pool |
+| **Deploy Fee**  | `?? ETH` (\~\$20 ) | Treasury    | Required to create a token/pool |
 | **Trading Fee** | `1%`                            | Treasury    | Applied on every buy/sell       |
 | **Gas Fees**    | Varies                          | Validators  | Normal Ethereum gas             |
 
@@ -143,7 +143,7 @@ This algorithm ensures **fair entry**, **transparent bonding**, and **trustless 
 * **Reserve Token**: `0x0C6eF4f55f315C524C590572625d733491DC0921`
 * **Treasury**: `0xedeb5bf895eb0315cc65cb31a84ffd92dc06e854`
 * **Uniswap Router**: `0x83641dBab18AF4cd14ac23F6257f3269a5693204`
-* **Deploy Fee**: `1e18 wei` (1 ETH ≈ 20 USD on your config)
+* **Deploy Fee**: `1e18 wei` (approx ETH of  ≈ 20 USD )
 
 ### Frontend Integration
 
@@ -159,6 +159,6 @@ This algorithm ensures **fair entry**, **transparent bonding**, and **trustless 
 ---
 
 ✅ **Summary**:
-Your Bonding Launch Factory creates a **trustless, fair-launch environment** where tokens are sold on a bonding curve until a target market cap is reached. At that point, liquidity is migrated to Uniswap and LP is permanently locked in a dead wallet. Costs are minimal (≈ \$20 deploy fee + gas + 1% trading fee), and the frontend provides a professional DEX-like token details page with metadata, charts, and buy/sell functionality.
+The Bonding Launch Factory creates a **trustless, fair-launch environment** where tokens are sold on a bonding curve until a target market cap is reached. At that point, liquidity is migrated to Uniswap and LP is permanently locked in a dead wallet. Costs are minimal (≈ \$20 deploy fee + gas + 1% trading fee), and the frontend provides a professional DEX-like token details page with metadata, charts, and buy/sell functionality.
 
 ---
